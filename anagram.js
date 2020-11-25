@@ -79,7 +79,7 @@ function anagram (a1, a2) {
 //console.log(anagram("abcd", "abcde"));
 console.log(anagram("bxc", "xcb"));
 
-// version without bug
+//other version 
 
 function anagram(a1, a2) {
   var diff = [];
