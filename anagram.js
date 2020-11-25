@@ -112,3 +112,43 @@ anagram("papa","pape");
 /*var str = "Hello world, welcome to the universe.";
 var n = str.indexOf("welcomeb");
 alert(n)*/
+
+// version without bug
+function anagram(a1,a2){
+var list1 = {};
+var list2 = {};
+diff = [];
+if(a1.length !== a2.length){
+  alert("not anagram");
+  return false;
+}
+else{
+ for(var j = 0; j < a2.length; j++){  // built first dictionary
+    list2[a2[j]] = a2[j];
+ }
+ temp2 = Object.values(list2);
+ for(var i = 0; i < a1.length; i++){  // built second dictionary
+     list1[a1[i]] = a1[i]; 
+ }
+ temp1 = Object.values(list1);   // recupere valeurs premier dictionnaire et met dans un tableau
+ for(var m of temp1){
+  if(temp2.indexOf(m) === -1){ // on regarde si chaque valeur du premier disctionaire est dans le deuxieme
+    diff.push(m);             // si une valeur n'est pas dans le deuxieme dictionaire, on met cette valeur dans le tableau diff
+  }
+ }
+ for(var n of temp2){
+  if(temp1.indexOf(n) === -1){ // on regarde si chaque valeur du deuxieme disctionaire est dans le premier
+       diff.push(n);          // si une valeur n'est pas dans le premier dictionaire, on met cette valeur dans le tableau diff
+  }
+ }
+ if(diff.length === 0){
+  alert("anagram");
+  return true;
+ }
+ else{
+  alert("not anagram");
+  return false;
+ }
+}
+}// fin function
+anagram("napa","anpa");
