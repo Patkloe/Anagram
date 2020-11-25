@@ -78,3 +78,37 @@ function anagram (a1, a2) {
 //console.log(anagram(['a', 'b'], ['b', 'a']));
 //console.log(anagram("abcd", "abcde"));
 console.log(anagram("bxc", "xcb"));
+
+// version without bug
+
+function anagram(a1, a2) {
+  var diff = [];
+  if(a1.length !== a2.length){
+   alert("not anagram");
+  }
+ else{
+  for (var i = 0; i < a1.length; i++) {
+    if (a2.indexOf(a1[i]) === -1) {
+      diff.push(a1[i]);
+    }
+  }
+  for (i = 0; i < a2.length; i++) {
+    if (a1.indexOf(a2[i]) === -1) {
+      diff.push(a2[i]);
+    }
+  }
+ }
+ if(diff.length === 0){
+   alert("anagram");
+   return true;
+ }
+ else{
+   alert("not anagram");
+   return false;
+ }
+}
+anagram("papa","pape");
+
+/*var str = "Hello world, welcome to the universe.";
+var n = str.indexOf("welcomeb");
+alert(n)*/
