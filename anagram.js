@@ -181,3 +181,34 @@ function isAnagram(a1, a2) {
 //isAnagram("papa","ppaa");
 isAnagram("napap","nappp");
 
+// another complete version
+function isAnagram(a1, a2) {
+  if(a1 === a2) {
+    return true;
+  }
+  if(a1.length !== a2.length) {
+    return false;
+  }
+  var dict = {};   // object to count character encountered
+  for(let i = 0; i < a1.length; i++) {
+      let index = a1[i];
+    dict[index] = (dict[index] || 0) + 1; // quand c nouveau 0n initialise 0, on incremente + 1
+    alert("premier :" + " " + dict[index]);
+  } // fin for
+  for(let j = 0; j < a2.length; j++) {
+      let index = a2[j];
+    if (!dict[index]) { 
+      return false; 
+    } // fin if
+      //dict[index]++;
+    dict[index]--;
+    alert("deuxieme :" + " " + dict[index]);
+  }// end for
+  return true;
+}
+//isAnagram("papa","ppaa");
+isAnagram("napap","nappa");
+
+//let index = a2.charCodeAt(j)-97;
+//let index = a1.charCodeAt(i)-97; // donne a chaque charactere a key
+
